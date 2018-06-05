@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.login.controller.LoginController">
    <children>
       <VBox prefHeight="400.0" prefWidth="601.0" styleClass="login_index_background">
@@ -17,8 +16,8 @@
             <HBox prefHeight="25.0" prefWidth="600.0" style="-fx-background-color: #ccc; -fx-background: transparent;">
                <children>
                   <Label fx:id="title" prefHeight="25.0" prefWidth="555.0" text="xxx系统" />
-                  <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0" prefWidth="30.0" text="-" textFill="#1a00ff" />
-                  <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0" prefWidth="30.0" text="x" textFill="RED" />
+                  <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0" prefWidth="30.0" styleClass="button" text="-" textFill="#1a00ff" />
+                  <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0" prefWidth="30.0" styleClass="button" text="x" textFill="RED" />
                </children>
             </HBox>
             <Pane prefHeight="158.0" prefWidth="609.0" />

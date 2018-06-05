@@ -13,11 +13,12 @@ import org.fx.urils.AlertUtil;
  */
 public class HomeController {
 
+    private AlertUtil alert = new AlertUtil();
+
     //    关闭程序
     @FXML
     private void close(MouseEvent event) {
-        AlertUtil util = new AlertUtil();
-        boolean b = util.f_alert_confirmDialog("警告", "是否确定退出");
+        boolean b = alert.f_alert_confirmDialog("警告", "是否确定退出");
         if (b)
             FXRobotHelper.getStages().get(0).close();
     }
@@ -26,5 +27,10 @@ public class HomeController {
     @FXML
     private void hide(MouseEvent event) {
         FXRobotHelper.getStages().get(0).setIconified(true);
+    }
+
+    @FXML
+    private void grzl(MouseEvent event){
+        alert.f_alert_informationDialog("提示","123");
     }
 }

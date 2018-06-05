@@ -7,3 +7,6 @@
     -fx-background-image: url("../../public/img/button.jpg") no-repeat center center;
     -fx-background-size:cover;
 }
+.button:hover{
+    -fx-background-color: #CD4F39
+}
