@@ -89,7 +89,6 @@ public class LoginController {
         login_button.setDisable(true);
         String accountText = account.getText();
         String passwordText = password.getText();
-
         if (accountText.trim().equals("") || passwordText.trim().equals("")) {
             error.setText("账户密码不能为空");
             title.setText(string_title);
