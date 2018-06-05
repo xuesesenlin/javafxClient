@@ -32,7 +32,36 @@
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefWidth="100.0" />
+                  <VBox prefWidth="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button">
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefWidth="100.0" text="Button" />
+                     </children>
+                  </VBox>
                   <VBox prefWidth="5.0" style="-fx-background-color: #ccc;" />
                </children>
             </HBox>
