@@ -33,7 +33,7 @@ public class HomeView {
         stage.initStyle(TRANSPARENT);
 
         Parent root = FXMLLoader.load(getClass().getResource("/home/fxml/index.fxml"));
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root);
 //        加载外部css
         scene.getStylesheets().add(getClass().getResource("/home/css/index.css").toExternalForm());
         stage.setScene(scene);
