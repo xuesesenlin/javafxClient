@@ -1,0 +1,9 @@
+.login_index_background{
+    -fx-background-image: url("../img/login_background.jpg") no-repeat center center;
+    -fx-background-size:cover;
+}
+.button{
+    -fx-background-radius: 0;
+    -fx-background-image: url("../../public/img/button.jpg") no-repeat center center;
+    -fx-background-size:cover;
+}
