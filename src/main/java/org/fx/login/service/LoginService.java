@@ -5,7 +5,7 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
-import org.fx.login.feign.LoginInterface;
+import org.fx.feign.AccountInterface;
 import org.fx.login.model.LoginModel;
 import org.fx.urils.FeignRequest;
 import org.fx.urils.FeignUtil;
@@ -14,8 +14,8 @@ import org.fx.urils.ResponseResult;
 //此service必须是javafx.concurrent包
 public class LoginService {
 
-    private LoginInterface loginInterface = FeignUtil.feign()
-            .target(LoginInterface.class, new FeignRequest().URL());
+    private AccountInterface accountInterface = FeignUtil.feign()
+            .target(AccountInterface.class, new FeignRequest().URL());
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public ResponseResult<String> login(LoginModel model) {
@@ -29,7 +29,7 @@ public class LoginService {
                     protected ResponseResult<String> call() throws Exception {
                         String json = objectMapper.writeValueAsString(model);
                         System.out.println("开始查询数据");
-                        ResponseResult<String> login = loginInterface.login(json);
+                        ResponseResult<String> login = accountInterface.login(json);
                         System.out.println(login);
                         return login;
                     }

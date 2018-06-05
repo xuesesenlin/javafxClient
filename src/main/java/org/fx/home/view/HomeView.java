@@ -7,8 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import static javafx.stage.StageStyle.TRANSPARENT;
+import org.fx.home.controller.HomeController;
 
 /**
  * @author ld
@@ -19,26 +18,24 @@ import static javafx.stage.StageStyle.TRANSPARENT;
 public class HomeView {
 
     public void init() throws Exception {
-        FXRobotHelper.getStages().get(0).close();
-        Stage stage = new Stage();
+        Stage stage = FXRobotHelper.getStages().get(0);
         //        窗口最大化
-//        primaryStage.setMaximized(true);
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
         stage.setX(bounds.getMinX());
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
         stage.setHeight(bounds.getHeight());
-
-        stage.initStyle(TRANSPARENT);
-
         Parent root = FXMLLoader.load(getClass().getResource("/home/fxml/index.fxml"));
-        Scene scene = new Scene(root);
 //        加载外部css
+        Scene scene = stage.getScene();
+        scene.setRoot(root);
+        scene.getStylesheets().clear();
         scene.getStylesheets().add(getClass().getResource("/home/css/index.css").toExternalForm());
         stage.setScene(scene);
 //        显示
-        FXRobotHelper.getStages().add(stage);
         stage.show();
+//        最新订单提醒
+        new HomeController().sssx();
     }
 }

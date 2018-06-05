@@ -1,77 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.paint.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.login.controller.LoginController">
-   <children>
-      <VBox prefHeight="400.0" prefWidth="601.0" styleClass="login_index_background">
-         <children>
-            <HBox prefHeight="25.0" prefWidth="600.0" style="-fx-background-color: #ccc; -fx-background: transparent;">
-               <children>
-                  <Label fx:id="title" prefHeight="25.0" prefWidth="555.0" text="xxx系统" />
-                  <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0" prefWidth="30.0" styleClass="button2" text="-" textFill="#1a00ff" />
-                  <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0" prefWidth="30.0" styleClass="button2" text="x" textFill="RED" />
-               </children>
-            </HBox>
-            <Pane prefHeight="158.0" prefWidth="609.0" />
-            <HBox prefHeight="216.0" prefWidth="600.0">
-               <children>
-                  <Pane prefHeight="265.0" prefWidth="273.0" />
-                  <VBox prefHeight="197.0" prefWidth="327.0">
-                     <children>
-                        <HBox prefHeight="39.0" prefWidth="327.0">
-                           <children>
-                              <Label prefHeight="30.0" prefWidth="38.0" text="账户：" />
-                              <TextField fx:id="account" prefHeight="30.0" prefWidth="255.0" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="38.0" prefWidth="327.0">
-                           <children>
-                              <Label prefHeight="30.0" prefWidth="38.0" text="密码：" />
-                              <PasswordField fx:id="password" prefHeight="30.0" prefWidth="255.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="327.0">
-                           <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#forgetPassword" prefHeight="30.0" prefWidth="68.0" text="忘记密码">
-                                 <HBox.margin>
-                                    <Insets right="15.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" onMouseClicked="#register" prefHeight="30.0" prefWidth="42.0" text="注册">
-                                 <HBox.margin>
-                                    <Insets right="15.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" onMouseClicked="#reset" prefHeight="30.0" prefWidth="42.0" text="重置">
-                                 <HBox.margin>
-                                    <Insets right="15.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="login_button" mnemonicParsing="false" onMouseClicked="#login" prefHeight="30.0" prefWidth="42.0" text="登录">
-                                 <HBox.margin>
-                                    <Insets right="34.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox layoutX="10.0" layoutY="49.0" prefHeight="38.0" prefWidth="327.0">
-                           <children>
-                              <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="328.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.fx.login.controller.LoginController">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="601.0" styleClass="login_index_background">
+            <children>
+                <HBox prefHeight="25.0" prefWidth="600.0"
+                      style="-fx-background-color: #ccc; -fx-background: transparent;">
+                    <children>
+                        <Label fx:id="title" prefHeight="25.0" prefWidth="555.0" text="xxx系统"/>
+                        <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0" prefWidth="30.0"
+                               styleClass="button2" text="-" textFill="#1a00ff"/>
+                        <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0"
+                               prefWidth="30.0" styleClass="button2" text="x" textFill="RED"/>
+                    </children>
+                </HBox>
+                <Pane prefHeight="158.0" prefWidth="609.0"/>
+                <HBox prefHeight="216.0" prefWidth="600.0">
+                    <children>
+                        <Pane prefHeight="265.0" prefWidth="273.0"/>
+                        <VBox prefHeight="197.0" prefWidth="327.0">
+                            <children>
+                                <HBox prefHeight="39.0" prefWidth="327.0">
+                                    <children>
+                                        <Label prefHeight="30.0" prefWidth="38.0" text="账户："/>
+                                        <TextField fx:id="account" prefHeight="30.0" prefWidth="255.0"/>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="38.0" prefWidth="327.0">
+                                    <children>
+                                        <Label prefHeight="30.0" prefWidth="38.0" text="密码："/>
+                                        <PasswordField fx:id="password" prefHeight="30.0" prefWidth="255.0"/>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="327.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" onMouseClicked="#forgetPassword"
+                                                prefHeight="15.0" prefWidth="68.0" text="忘记密码">
+                                            <HBox.margin>
+                                                <Insets right="15.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onMouseClicked="#register" prefHeight="15.0"
+                                                prefWidth="42.0" text="注册">
+                                            <HBox.margin>
+                                                <Insets right="15.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onMouseClicked="#reset" prefHeight="15.0"
+                                                prefWidth="42.0" text="重置">
+                                            <HBox.margin>
+                                                <Insets right="15.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button fx:id="login_button" mnemonicParsing="false" onMouseClicked="#login"
+                                                prefHeight="15.0" prefWidth="42.0" text="登录">
+                                            <HBox.margin>
+                                                <Insets right="34.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="49.0" prefHeight="38.0" prefWidth="327.0">
+                                    <children>
+                                        <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER"
+                                               prefHeight="38.0" prefWidth="328.0"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

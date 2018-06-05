@@ -1,4 +1,4 @@
-package org.fx.login.feign;
+package org.fx.feign;
 
 import feign.Body;
 import feign.Param;
@@ -9,7 +9,7 @@ import org.fx.urils.ResponseResult;
 /**
  * @Headers("X-Ping: {token}")
  */
-public interface LoginInterface {
+public interface AccountInterface {
 
     @RequestLine("POST /api/account/login")
     @Body("json={json}")
