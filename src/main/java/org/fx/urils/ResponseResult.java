@@ -52,6 +52,12 @@ public class ResponseResult<Object> {
         this.code = code;
     }
 
+    public ResponseResult(boolean success, String message, Object data) {
+        this.success = success;
+        this.message = message;
+        this.data = data;
+    }
+
     public ResponseResult(boolean success, String message) {
         this.success = success;
         this.message = message;

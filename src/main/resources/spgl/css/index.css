@@ -4,16 +4,13 @@
     -fx-background-size:cover;*/
 
     /*设置背景颜色渐变*/
-    -fx-background-color: linear-gradient(to right,#00fffc,#fff600);
+    -fx-background-color: linear-gradient(to bottom,#00fffc,#fff600);
     /*设置圆角*/
     -fx-background-radius: 0;
     -fx-border-radius: 0;
 }
 .button2:hover{
-    -fx-background-color: linear-gradient(to right,#ee710c,#ee0c5a);
+    -fx-background-color: linear-gradient(to bottom,#ee710c,#ee0c5a);
     -fx-background-radius: 0;
     -fx-border-radius: 0;
-}
-.index{
-    -fx-background-color: linear-gradient(to right,#666666,#666666);
 }

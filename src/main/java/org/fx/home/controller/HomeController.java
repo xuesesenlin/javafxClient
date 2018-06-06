@@ -2,7 +2,6 @@ package org.fx.home.controller;
 
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -15,6 +14,7 @@ import org.fx.feign.AccountInterface;
 import org.fx.feign.OrderInterface;
 import org.fx.feign.PersionInterface;
 import org.fx.grzl.view.GrzlView;
+import org.fx.spgl.view.SpglView;
 import org.fx.urils.*;
 
 import java.util.Timer;
@@ -61,6 +61,11 @@ public class HomeController {
     @FXML
     private void grzl(MouseEvent event) throws Exception {
         new GrzlView().init();
+    }
+
+    @FXML
+    private void spgl(MouseEvent event) throws Exception {
+        new SpglView().init();
     }
 
     //    实时获取有无最新订单
