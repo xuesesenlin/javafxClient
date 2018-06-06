@@ -1,8 +1,16 @@
 .button{
-    -fx-background-radius: 0;
+    /*-fx-background-radius: 0;
     -fx-background-image: url("../../public/img/button.jpg") no-repeat center center;
-    -fx-background-size:cover;
+    -fx-background-size:cover;*/
+
+    /*设置背景颜色渐变*/
+    -fx-background-color: linear-gradient(to right,#00fffc,#fff600);
+    /*设置圆角*/
+    /*-fx-background-radius: 25;
+    -fx-border-radius: 25;*/
 }
 .button2:hover{
-    -fx-background-color: #00868B
+    -fx-background-color: linear-gradient(to right,#ee710c,#ee0c5a);
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
 }

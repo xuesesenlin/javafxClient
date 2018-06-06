@@ -61,7 +61,10 @@
                             </children>
                         </VBox>
                         <VBox prefWidth="5.0" style="-fx-background-color: #ccc;" />
-                        <VBox fx:id="bodys" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <AnchorPane fx:id="bodys" prefHeight="378.0" prefWidth="495.0" VBox.vgrow="ALWAYS" />
+                     </children></VBox>
                     </children>
                 </HBox>
             </children>

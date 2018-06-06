@@ -40,9 +40,6 @@ public class HomeController {
     private OrderInterface orderInterface = FeignUtil.feign()
             .target(OrderInterface.class, new FeignRequest().URL());
 
-    @FXML
-    private VBox bodys;
-
     //    关闭程序
     @FXML
     private void close(MouseEvent event) {
@@ -63,7 +60,7 @@ public class HomeController {
 
     @FXML
     private void grzl(MouseEvent event) {
-        new GrzlController().grzl(bodys);
+        new GrzlController().grzl();
     }
 
     //    点击确定按钮修改密码

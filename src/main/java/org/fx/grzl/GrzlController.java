@@ -4,12 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.fx.feign.AccountInterface;
 import org.fx.feign.PersionInterface;
@@ -27,8 +29,7 @@ public class GrzlController {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     //    点击个人资料
-    public void grzl(Pane pane) {
-        pane.getChildren().clear();
+    public void grzl() {
         HBox hBox = new HBox();
         ObservableList<Node> children = hBox.getChildren();
         Label label = new Label("修改密码:");
@@ -83,7 +84,15 @@ public class GrzlController {
             Label label123 = new Label("获取商家码失败，可以尝试从新打开该页面或尝试从新登陆");
             children.add(label123);
         }
-        pane.getChildren().add(hBox);
+        try {
+
+            Parent root = FXRobotHelper.getStages().get(0).getScene().getRoot();
+            Parent root2 = FXMLLoader.load(getClass().getResource("/home/fxml/index.fxml"));
+            AnchorPane lookup = (AnchorPane) root.lookup("#bodys");
+            lookup.getChildren().addAll(root2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //    点击确定按钮修改密码
