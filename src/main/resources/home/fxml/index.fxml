@@ -32,29 +32,29 @@
                     <children>
                         <VBox prefWidth="100.0">
                             <children>
-                                <Button fx:id="grzl" mnemonicParsing="false" onMouseClicked="#grzl" prefWidth="100.0" text="个人资料">
+                                <Button mnemonicParsing="false" onMouseClicked="#grzl" prefWidth="100.0" text="个人资料">
                                     <VBox.margin>
-                                        <Insets bottom="1.0" />
+                                        <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="商品管理">
                                     <VBox.margin>
-                                        <Insets bottom="1.0" />
+                                        <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="订单管理">
                                     <VBox.margin>
-                                        <Insets bottom="1.0" />
+                                        <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="二维码">
                                     <VBox.margin>
-                                        <Insets bottom="1.0" />
+                                        <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="下载">
                                     <VBox.margin>
-                                        <Insets bottom="1.0" />
+                                        <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="更新" />

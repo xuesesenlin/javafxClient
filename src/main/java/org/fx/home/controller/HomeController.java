@@ -3,21 +3,18 @@ package org.fx.home.controller;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.fx.feign.AccountInterface;
 import org.fx.feign.OrderInterface;
 import org.fx.feign.PersionInterface;
-import org.fx.grzl.GrzlController;
+import org.fx.grzl.view.GrzlView;
 import org.fx.urils.*;
 
 import java.util.Timer;
@@ -59,59 +56,8 @@ public class HomeController {
     }
 
     @FXML
-    private void grzl(MouseEvent event) {
-        new GrzlController().grzl();
-    }
-
-    //    点击确定按钮修改密码
-    private void updatePWD(ActionEvent event, TextField textField) {
-        String text = textField.getText();
-        AlertUtil alertUtil = new AlertUtil();
-        text = Base64Util.encode(text);
-        ResponseResult<String> result = accountInterface.updatePWD(text, StaticToken.getToken());
-        if (result.isSuccess()) {
-            alertUtil.f_alert_informationDialog("提示", "修改密码成功");
-////            自动注销
-            ObservableList<Stage> stages = FXRobotHelper.getStages();
-            stages.get(0).close();
-        } else {
-            StaticToken.setToken(result.getData());
-            alertUtil.f_alert_informationDialog("警告", result.getMessage());
-        }
-    }
-
-    //    点击确定按钮修改地址
-    private void updateAdderss(ActionEvent event, TextField textField) {
-        String text = textField.getText();
-        AlertUtil alertUtil = new AlertUtil();
-        text = Base64Util.encode(text);
-        ResponseResult<String> result = persionInterface.updateAdderss(text, StaticToken.getToken());
-        if (result.isSuccess()) {
-            alertUtil.f_alert_informationDialog("提示", "地址修改成功");
-////            自动注销
-            ObservableList<Stage> stages = FXRobotHelper.getStages();
-            stages.get(0).close();
-        } else {
-            StaticToken.setToken(result.getData());
-            alertUtil.f_alert_informationDialog("警告", result.getMessage());
-        }
-    }
-
-    //    点击确定按钮修改电话
-    private void updatePhone(ActionEvent event, TextField textField) {
-        String text = textField.getText();
-        AlertUtil alertUtil = new AlertUtil();
-        text = Base64Util.encode(text);
-        ResponseResult<String> result = persionInterface.updatePhone(text, StaticToken.getToken());
-        if (result.isSuccess()) {
-            alertUtil.f_alert_informationDialog("提示", "电话修改成功");
-////            自动注销
-            ObservableList<Stage> stages = FXRobotHelper.getStages();
-            stages.get(0).close();
-        } else {
-            StaticToken.setToken(result.getData());
-            alertUtil.f_alert_informationDialog("警告", result.getMessage());
-        }
+    private void grzl(MouseEvent event) throws Exception {
+        new GrzlView().init();
     }
 
     //    实时获取有无最新订单
@@ -128,15 +74,15 @@ public class HomeController {
                                 Pane pane = new Pane();
                                 Label label = new Label("您有新订单，请注意刷新");
                                 pane.getChildren().add(label);
-                                Scene scene = new Scene(pane,100,20);
+                                Scene scene = new Scene(pane, 100, 20);
                                 stage.setScene(scene);
                                 stage.initStyle(TRANSPARENT);
                                 stage.setResizable(false);
                                 stage.setTitle("提示");
                                 Screen screen2 = Screen.getPrimary();
                                 Rectangle2D bounds = screen2.getVisualBounds();
-                                stage.setX(bounds.getMaxX()-200);
-                                stage.setY(bounds.getMaxY()-100);
+                                stage.setX(bounds.getMaxX() - 200);
+                                stage.setY(bounds.getMaxY() - 100);
                                 stage.setWidth(200);
                                 stage.setHeight(100);
                                 stage.setAlwaysOnTop(true);
