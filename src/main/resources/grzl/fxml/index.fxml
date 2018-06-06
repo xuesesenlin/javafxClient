@@ -15,6 +15,9 @@
                   <Label prefHeight="30.0" prefWidth="40.0" text=" 编码:" />
                   <TextField fx:id="bm" disable="true" prefHeight="30.0" prefWidth="263.0" HBox.hgrow="ALWAYS" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="30.0">
                <children>
@@ -22,6 +25,9 @@
                   <TextField fx:id="dz" prefHeight="30.0" prefWidth="263.0" HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" onMouseClicked="#updateAdderss" prefHeight="30.0" text="确定" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="30.0">
                <children>
@@ -29,6 +35,9 @@
                   <TextField fx:id="dh" prefHeight="30.0" prefWidth="263.0" HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" onMouseClicked="#updatePhone" prefHeight="30.0" text="确定" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="30.0">
                <children>
@@ -36,6 +45,9 @@
                   <TextField fx:id="mm" prefHeight="30.0" prefWidth="263.0" HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" onMouseClicked="#updatePWD" prefHeight="30.0" text="确定" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

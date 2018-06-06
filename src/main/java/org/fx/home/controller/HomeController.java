@@ -42,10 +42,13 @@ public class HomeController {
     private void close(MouseEvent event) {
         boolean b = alert.f_alert_confirmDialog("警告", "是否确定退出");
         if (b) {
-            ObservableList<Stage> stages = FXRobotHelper.getStages();
-            for (int i = stages.size() - 1; i >= 0; i--) {
-                stages.get(i).close();
-            }
+            //            停止所有线程
+            System.exit(0);
+//            只是关闭所有页面
+//            ObservableList<Stage> stages = FXRobotHelper.getStages();
+//            for (int i = stages.size() - 1; i >= 0; i--) {
+//                stages.get(i).close();
+//            }
         }
     }
 
