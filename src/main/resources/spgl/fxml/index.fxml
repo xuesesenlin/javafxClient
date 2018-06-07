@@ -36,16 +36,16 @@
                   </HBox>
                   <TableView fx:id="spgl_table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                     <columns>
-                      <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="主图" />
-                      <TableColumn maxWidth="500.0" minWidth="100.0" prefWidth="100.0" text="名称" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="价格" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="单位" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="规格" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="品牌" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="数量" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="类目" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="上下架" />
-                        <TableColumn maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="操作" />
+                        <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" fx:id="xh" />
+                      <TableColumn fx:id="cname" maxWidth="500.0" minWidth="100.0" prefWidth="100.0" text="名称" />
+                        <TableColumn fx:id="jg" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="价格" />
+                        <TableColumn fx:id="dw" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="单位" />
+                        <TableColumn fx:id="ge" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="规格" />
+                        <TableColumn fx:id="pp" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="品牌" />
+                        <TableColumn fx:id="sl" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="数量" />
+                        <TableColumn fx:id="lm" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="类目" />
+                        <TableColumn fx:id="sxj_string" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="上下架" />
+                        <TableColumn fx:id="cz" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="操作" />
                     </columns>
                   </TableView>
                </children>
