@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane styleClass="index" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.home.controller.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="index" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.home.controller.HomeController">
     <children>
         <VBox layoutX="250.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -42,7 +42,7 @@
                                         <Insets bottom="3.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" prefWidth="100.0" text="订单管理">
+                                <Button mnemonicParsing="false" onMouseClicked="#ddgl" prefWidth="100.0" text="订单管理">
                                     <VBox.margin>
                                         <Insets bottom="3.0" />
                                     </VBox.margin>

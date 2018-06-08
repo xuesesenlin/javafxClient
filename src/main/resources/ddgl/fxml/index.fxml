@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="ddgl_index" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.ddgl.controller.DdglController">
+   <children>
+      <VBox layoutX="250.0" layoutY="52.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox prefHeight="23.0">
+               <children>
+                  <Button mnemonicParsing="false" text="未完成订单">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="已完成订单">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="已关闭订单">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="全部订单">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="上一页">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="下一页">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField prefHeight="23.0" prefWidth="99.0" promptText="根据单号查询" />
+                  <Button mnemonicParsing="false" text="查询" />
+               </children>
+            </HBox>
+            <VBox prefHeight="26.0" prefWidth="580.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="order_table" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="order_uuid" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="uuid" visible="false" />
+                      <TableColumn fx:id="order_xh" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" />
+                      <TableColumn fx:id="order_dddh" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="单号" />
+                        <TableColumn fx:id="order_khmc" maxWidth="500.0" minWidth="200.0" prefWidth="200.0" text="客户名称" />
+                        <TableColumn fx:id="order_dh" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="电话" />
+                        <TableColumn fx:id="order_dz" maxWidth="500.0" minWidth="200.0" prefWidth="200.0" text="地址" />
+                        <TableColumn fx:id="order_ddzt" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="订单状态" />
+                        <TableColumn fx:id="order_cz" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="操作" />
+                    </columns>
+                  </TableView>
+                  <TableView prefHeight="300.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="商品名称" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="品牌" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="数量" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="购买时单价" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="购买时总价" />
+                        <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="商品状态" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

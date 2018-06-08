@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.fx.ddgl.view.DdglView;
 import org.fx.feign.AccountInterface;
 import org.fx.feign.OrderInterface;
 import org.fx.feign.PersionInterface;
@@ -66,6 +67,11 @@ public class HomeController {
     @FXML
     private void spgl(MouseEvent event) throws Exception {
         new SpglView().init();
+    }
+
+    @FXML
+    private void ddgl(MouseEvent event) throws Exception {
+        new DdglView().init();
     }
 
     //    实时获取有无最新订单
