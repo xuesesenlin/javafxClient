@@ -9,23 +9,23 @@
 
 <AnchorPane fx:id="spzl_index" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.spgl.controller.SpglController">
    <children>
-      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <VBox>
                <children>
                   <HBox prefHeight="23.0">
                      <children>
-                        <Button mnemonicParsing="false" text="新增">
+                        <Button mnemonicParsing="false" onMouseClicked="#add" text="新增">
                            <HBox.margin>
                               <Insets right="2.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="上一页">
+                        <Button mnemonicParsing="false" onMouseClicked="#pageUp" text="上一页">
                            <HBox.margin>
                               <Insets right="2.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="下一页" />
+                        <Button mnemonicParsing="false" onMouseClicked="#pageNext" text="下一页" />
                         <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="当前页码:" textFill="RED" />
@@ -36,6 +36,7 @@
                   </HBox>
                   <TableView fx:id="spgl_table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                     <columns>
+                        <TableColumn fx:id="uuid" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" visible="false" />
                         <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" fx:id="xh" />
                       <TableColumn fx:id="cname" maxWidth="500.0" minWidth="100.0" prefWidth="100.0" text="名称" />
                         <TableColumn fx:id="jg" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="价格" />

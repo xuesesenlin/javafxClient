@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="spzl_update" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.spgl.controller.SpglUpdateController">
+   <children>
+      <VBox layoutX="221.0" layoutY="-5.0" prefHeight="250.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#save" stylesheets="@../css/index.css" text="确定">
+                     <styleClass>
+                        <String fx:value="button" />
+                        <String fx:value="button2" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="名称:" />
+                  <TextField fx:id="cname" prefHeight="23.0" prefWidth="200.0" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="价格:" />
+                  <TextField fx:id="jg" prefHeight="23.0" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="单位:" />
+                  <TextField fx:id="dw" prefHeight="23.0" prefWidth="200.0" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="规格:" />
+                  <TextField fx:id="ge" prefHeight="23.0" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="品牌:" />
+                  <TextField fx:id="pp" prefHeight="23.0" prefWidth="200.0" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="详情:" />
+                  <TextField prefHeight="23.0" prefWidth="200.0" fx:id="xq" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="数量:" />
+                  <TextField fx:id="sl" prefHeight="23.0" prefWidth="200.0" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="类目:" />
+                  <ChoiceBox fx:id="lm" prefHeight="23.0" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="20.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="下架:" />
+                  <ChoiceBox fx:id="sfxj" prefHeight="23.0" prefWidth="200.0" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="50.0" text="主图:" />
+                  <ImageView fx:id="zt" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/chose_img.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label fx:id="uuid" visible="false" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
