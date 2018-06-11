@@ -92,14 +92,13 @@ public class SpglController implements Initializable {
                     public void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
                         if (!isEmpty()) {
-                            Platform.runLater(() -> {
-                                Image img = new Image(new FeignRequest().URL() + "/commodity/IoReadImage/" + item);
-                                ImageView image = new ImageView(img);
-                                image.setFitWidth(30);
-                                image.setFitHeight(30);
-                                this.setGraphic(image);
-                            });
-                        }
+                            Image img = new Image(new FeignRequest().URL() + "/commodity/IoReadImage/" + item);
+                            ImageView image = new ImageView(img);
+                            image.setFitWidth(30);
+                            image.setFitHeight(30);
+                            this.setGraphic(image);
+                        } else
+                            this.setGraphic(null);
                     }
                 };
             }
@@ -154,6 +153,7 @@ public class SpglController implements Initializable {
                 list.addAll(beanList);
                 Platform.runLater(() -> {
                     pageNow.setText(page2 + "");
+                    spgl_table.getItems().clear();
                     spgl_table.setItems(list);
                 });
             } catch (IOException e) {
@@ -162,6 +162,7 @@ public class SpglController implements Initializable {
         } else {
             Platform.runLater(() -> {
                 pageNow.setText(page + "");
+                spgl_table.getItems().clear();
                 spgl_table.setItems(list);
             });
         }
