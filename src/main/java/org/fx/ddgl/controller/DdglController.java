@@ -112,6 +112,7 @@ public class DdglController implements Initializable {
                         button3.getStyleClass().add("button");
                         button3.getStyleClass().add("button2");
                         HBox hBox = new HBox();
+                        hBox.setSpacing(5);
                         hBox.getChildren().addAll(button, button2, button3);
                         this.setGraphic(hBox);
                     }

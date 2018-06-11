@@ -9,8 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 import org.fx.feign.SpglInterface;
 import org.fx.spgl.model.SpglModel;
 import org.fx.spgl.view.SpglView;
@@ -57,6 +60,8 @@ public class SpglController implements Initializable {
     private TableColumn sxj_string;
     @FXML
     private TableColumn cz;
+    @FXML
+    private TableColumn zt;
 
     public void getData(int page, int page2) {
         ObservableList<SpglModel> list = FXCollections.observableArrayList();
@@ -78,6 +83,28 @@ public class SpglController implements Initializable {
             return cell;
         });
         cname.setCellValueFactory(new PropertyValueFactory("cname"));
+
+        zt.setCellValueFactory(new PropertyValueFactory("zt"));
+        zt.setCellFactory(new Callback<TableColumn<SpglModel, String>, TableCell<SpglModel, String>>() {
+            public TableCell call(TableColumn param) {
+                return new TableCell<SpglModel, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            Platform.runLater(() -> {
+                                Image img = new Image(new FeignRequest().URL() + "/commodity/IoReadImage/" + item);
+                                ImageView image = new ImageView(img);
+                                image.setFitWidth(30);
+                                image.setFitHeight(30);
+                                this.setGraphic(image);
+                            });
+                        }
+                    }
+                };
+            }
+        });
+
         jg.setCellValueFactory(new PropertyValueFactory("jg"));
         dw.setCellValueFactory(new PropertyValueFactory("dw"));
         ge.setCellValueFactory(new PropertyValueFactory("ge"));
@@ -102,11 +129,12 @@ public class SpglController implements Initializable {
                         button.getStyleClass().add("button3");
                         Button button2 = new Button("修改");
                         button2.setOnMouseClicked(o -> {
-                            update(o,this.getTableView().getItems().get(this.getIndex()).getUuid());
+                            update(o, this.getTableView().getItems().get(this.getIndex()).getUuid());
                         });
                         button2.getStyleClass().add("button");
                         button2.getStyleClass().add("button2");
                         HBox hBox = new HBox();
+                        hBox.setSpacing(5);
                         hBox.getChildren().addAll(button, button2);
                         this.setGraphic(hBox);
                     }

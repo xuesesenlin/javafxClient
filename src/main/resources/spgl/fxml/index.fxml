@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane fx:id="spzl_index" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/index.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.spgl.controller.SpglController">
-   <children>
-      <StackPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-         <children>
-            <VBox>
-               <children>
-                  <HBox prefHeight="23.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#add" text="新增">
-                           <HBox.margin>
-                              <Insets right="2.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#pageUp" text="上一页">
-                           <HBox.margin>
-                              <Insets right="2.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#pageNext" text="下一页" />
-                        <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="当前页码:" textFill="RED" />
-                              <Label fx:id="pageNow" alignment="CENTER" prefHeight="15.0" prefWidth="30.0" text="1" textFill="RED" />
-                           </children>
+<AnchorPane fx:id="spzl_index" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/index.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.fx.spgl.controller.SpglController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+                   AnchorPane.topAnchor="10.0">
+            <children>
+                <VBox>
+                    <children>
+                        <HBox prefHeight="23.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMouseClicked="#add" text="新增">
+                                    <HBox.margin>
+                                        <Insets right="2.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMouseClicked="#pageUp" text="上一页">
+                                    <HBox.margin>
+                                        <Insets right="2.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onMouseClicked="#pageNext" text="下一页"/>
+                                <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="当前页码:" textFill="RED"/>
+                                        <Label fx:id="pageNow" alignment="CENTER" prefHeight="15.0" prefWidth="30.0"
+                                               text="1" textFill="RED"/>
+                                    </children>
+                                </HBox>
+                            </children>
                         </HBox>
-                     </children>
-                  </HBox>
-                  <TableView fx:id="spgl_table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                    <columns>
-                        <TableColumn fx:id="uuid" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" visible="false" />
-                        <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" fx:id="xh" />
-                      <TableColumn fx:id="cname" maxWidth="500.0" minWidth="100.0" prefWidth="100.0" text="名称" />
-                        <TableColumn fx:id="jg" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="价格" />
-                        <TableColumn fx:id="dw" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="单位" />
-                        <TableColumn fx:id="ge" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="规格" />
-                        <TableColumn fx:id="pp" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="品牌" />
-                        <TableColumn fx:id="sl" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="数量" />
-                        <TableColumn fx:id="lm" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="类目" />
-                        <TableColumn fx:id="sxj_string" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="上下架" />
-                        <TableColumn fx:id="cz" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="操作" />
-                    </columns>
-                  </TableView>
-               </children>
-            </VBox>
-         </children></StackPane>
-   </children>
+                        <TableView fx:id="spgl_table" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="uuid" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号"
+                                             visible="false"/>
+                                <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号" fx:id="xh"/>
+                                <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="主图" fx:id="zt"/>
+                                <TableColumn fx:id="cname" maxWidth="500.0" minWidth="100.0" prefWidth="100.0"
+                                             text="名称"/>
+                                <TableColumn fx:id="jg" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="价格"/>
+                                <TableColumn fx:id="dw" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="单位"/>
+                                <TableColumn fx:id="ge" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="规格"/>
+                                <TableColumn fx:id="pp" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="品牌"/>
+                                <TableColumn fx:id="sl" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="数量"/>
+                                <TableColumn fx:id="lm" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="类目"/>
+                                <TableColumn fx:id="sxj_string" maxWidth="75.0" minWidth="75.0" prefWidth="75.0"
+                                             text="上下架"/>
+                                <TableColumn fx:id="cz" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="操作"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
 </AnchorPane>
