@@ -1,5 +1,6 @@
 package org.fx.home.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -10,11 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.fx.ddgl.controller.DdglController;
 import org.fx.ddgl.view.DdglView;
-import org.fx.feign.AccountInterface;
 import org.fx.feign.OrderInterface;
-import org.fx.feign.PersionInterface;
 import org.fx.grzl.view.GrzlView;
 import org.fx.spgl.view.SpglView;
 import org.fx.urils.*;
@@ -32,12 +30,9 @@ import static javafx.stage.StageStyle.TRANSPARENT;
 public class HomeController {
 
     private AlertUtil alert = new AlertUtil();
-    private AccountInterface accountInterface = FeignUtil.feign()
-            .target(AccountInterface.class, new FeignRequest().URL());
-    private PersionInterface persionInterface = FeignUtil.feign()
-            .target(PersionInterface.class, new FeignRequest().URL());
     private OrderInterface orderInterface = FeignUtil.feign()
             .target(OrderInterface.class, new FeignRequest().URL());
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     //    关闭程序
     @FXML
@@ -86,7 +81,7 @@ public class HomeController {
                             ResponseResult<String> result = orderInterface.findByType(StaticToken.getToken());
                             if (result.isSuccess()) {
 //                                刷新未完成的
-                                new DdglController().sstx();
+//                                new DdglController().sstx();
 //                                弹窗提醒
                                 Stage stage = new Stage();
                                 Pane pane = new Pane();

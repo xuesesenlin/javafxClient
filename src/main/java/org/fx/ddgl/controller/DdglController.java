@@ -74,6 +74,8 @@ public class DdglController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        order_table.setPlaceholder(new Label("数据加载中"));
+        order_table2.setPlaceholder(new Label("无数据"));
         getData(0, 1, 0);
     }
 
@@ -171,6 +173,7 @@ public class DdglController implements Initializable {
                     Platform.runLater(() -> {
                         pageNow.setText(page2 + "");
                         order_table.setItems(list);
+                        order_table.setPlaceholder(new Label("无数据"));
                     });
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -178,6 +181,7 @@ public class DdglController implements Initializable {
             } else {
                 pageNow.setText(page + "");
                 order_table.setItems(list);
+                order_table.setPlaceholder(new Label("无数据"));
             }
         });
     }

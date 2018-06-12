@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import feign.FeignException;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -130,51 +129,44 @@ public class LoginController {
         login_button.setDisable(true);
         String accountText = account.getText();
         String passwordText = password.getText();
-        if (accountText.trim().equals("") || passwordText.trim().equals("")) {
-            error.setText("账户密码不能为空");
-            title.setText(string_title);
-            login_button.setDisable(false);
-        } else {
-            Task<Void> task = new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                    Platform.runLater(() -> {
-                        LoginModel model = new LoginModel();
-                        model.setUsername(accountText);
-                        model.setPassword(Base64Util.encode(passwordText));
-                        model.setTypes(1);
-                        try {
-                            String json = objectMapper.writeValueAsString(model);
-                            ResponseResult<String> result = accountInterface.login(json);
-                            if (result.isSuccess()) {
-                                StaticToken.setToken(result.getData());
-                                new HomeView().init();
-                            } else {
-                                error.setText(result.getMessage());
-                                title.setText(string_title);
-                                login_button.setDisable(false);
-                            }
-                        } catch (JsonProcessingException e) {
-                            e.printStackTrace();
-                            error.setText("数据转换错误");
-                            title.setText(string_title);
-                            login_button.setDisable(false);
-                        } catch (FeignException e) {
-                            e.printStackTrace();
-                            error.setText("远程服务器错误");
-                            title.setText(string_title);
-                            login_button.setDisable(false);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            error.setText("跳转错误");
-                            title.setText(string_title);
-                            login_button.setDisable(false);
-                        }
-                    });
-                    return null;
+        Platform.runLater(() -> {
+            if (accountText.trim().equals("") || passwordText.trim().equals("")) {
+                error.setText("账户密码不能为空");
+                title.setText(string_title);
+                login_button.setDisable(false);
+            } else {
+                LoginModel model = new LoginModel();
+                model.setUsername(accountText);
+                model.setPassword(Base64Util.encode(passwordText));
+                model.setTypes(1);
+                try {
+                    String json = objectMapper.writeValueAsString(model);
+                    ResponseResult<String> result = accountInterface.login(json);
+                    if (result.isSuccess()) {
+                        StaticToken.setToken(result.getData());
+                        new HomeView().init();
+                    } else {
+                        error.setText(result.getMessage());
+                        title.setText(string_title);
+                        login_button.setDisable(false);
+                    }
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                    error.setText("数据转换错误");
+                    title.setText(string_title);
+                    login_button.setDisable(false);
+                } catch (FeignException e) {
+                    e.printStackTrace();
+                    error.setText("远程服务器错误");
+                    title.setText(string_title);
+                    login_button.setDisable(false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    error.setText("跳转错误");
+                    title.setText(string_title);
+                    login_button.setDisable(false);
                 }
-            };
-            new Thread(task).start();
-        }
+            }
+        });
     }
 }

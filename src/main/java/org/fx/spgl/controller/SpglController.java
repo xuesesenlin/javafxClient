@@ -35,7 +35,6 @@ public class SpglController implements Initializable {
 
     @FXML
     private Label pageNow;
-
     @FXML
     private TableView spgl_table;
     @FXML
@@ -124,7 +123,6 @@ public class SpglController implements Initializable {
                         });
                         button.getStyleClass().add("button");
                         button.getStyleClass().add("button2");
-                        button.getStyleClass().add("button3");
                         Button button2 = new Button("修改");
                         button2.setOnMouseClicked(o -> {
                             update(o, this.getTableView().getItems().get(this.getIndex()));
@@ -134,6 +132,7 @@ public class SpglController implements Initializable {
                         HBox hBox = new HBox();
                         hBox.setSpacing(5);
                         hBox.getChildren().addAll(button, button2);
+                        hBox.setSpacing(5);
                         this.setGraphic(hBox);
                     }
                 }
@@ -154,21 +153,30 @@ public class SpglController implements Initializable {
                     pageNow.setText(page2 + "");
                     spgl_table.getItems().clear();
                     spgl_table.setItems(list);
+                    spgl_table.setPlaceholder(new Label("无数据"));
                 });
             } catch (IOException e) {
                 e.printStackTrace();
+                Platform.runLater(() -> {
+                    pageNow.setText(page + "");
+                    spgl_table.getItems().clear();
+                    spgl_table.setItems(list);
+                    spgl_table.setPlaceholder(new Label("无数据"));
+                });
             }
         } else {
             Platform.runLater(() -> {
                 pageNow.setText(page + "");
                 spgl_table.getItems().clear();
                 spgl_table.setItems(list);
+                spgl_table.setPlaceholder(new Label("无数据"));
             });
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        spgl_table.setPlaceholder(new Label("数据加载中"));
         Platform.runLater(() -> {
             getData(0, 1);
         });

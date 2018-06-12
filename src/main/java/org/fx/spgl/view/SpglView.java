@@ -66,9 +66,10 @@ public class SpglView {
         ChoiceBox sfxj = (ChoiceBox) root2.lookup("#sfxj");
         sfxj.setValue(model.getSxj_string());
         ImageView zt = (ImageView) root2.lookup("#zt");
-        if (model.getZt() != null && !model.getZt().trim().equals(""))
+        if (model.getZt() != null && !model.getZt().trim().equals("")) {
             zt.setImage(new Image(new FeignRequest().URL() + "/commodity/IoReadImage/" + model.getZt()));
-        zt.setId(model.getZt());
+            zt.setId(model.getZt());
+        }
         AnchorPane node = (AnchorPane) root2.lookup("#spzl_update");
         node.setPrefWidth(lookup.getWidth());
         node.setPrefHeight(lookup.getHeight());
