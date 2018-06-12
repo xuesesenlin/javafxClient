@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="index" xmlns="http://javafx.com/javafx/8"
@@ -51,17 +51,17 @@
                                         <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" prefWidth="100.0" text="二维码">
-                                    <VBox.margin>
-                                        <Insets bottom="3.0"/>
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" prefWidth="100.0" text="下载">
-                                    <VBox.margin>
-                                        <Insets bottom="3.0"/>
-                                    </VBox.margin>
-                                </Button>
-                                <Button mnemonicParsing="false" prefWidth="100.0" text="更新"/>
+                                <!--<Button mnemonicParsing="false" prefWidth="100.0" text="二维码">-->
+                                <!--<VBox.margin>-->
+                                <!--<Insets bottom="3.0"/>-->
+                                <!--</VBox.margin>-->
+                                <!--</Button>-->
+                                <!--<Button mnemonicParsing="false" prefWidth="100.0" text="下载">-->
+                                <!--<VBox.margin>-->
+                                <!--<Insets bottom="3.0"/>-->
+                                <!--</VBox.margin>-->
+                                <!--</Button>-->
+                                <!--<Button mnemonicParsing="false" prefWidth="100.0" text="更新"/>-->
                             </children>
                         </VBox>
                         <VBox prefWidth="5.0" style="-fx-background-color: #ccc;"/>
