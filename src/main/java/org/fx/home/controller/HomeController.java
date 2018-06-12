@@ -85,6 +85,9 @@ public class HomeController {
                             //        最新订单提醒
                             ResponseResult<String> result = orderInterface.findByType(StaticToken.getToken());
                             if (result.isSuccess()) {
+//                                刷新未完成的
+                                new DdglController().sstx();
+//                                弹窗提醒
                                 Stage stage = new Stage();
                                 Pane pane = new Pane();
                                 Label label = new Label("您有新订单，请注意刷新");
@@ -115,8 +118,6 @@ public class HomeController {
                                         });
                                     }
                                 }, 5000, 5000);
-//                                刷新未完成的
-                                new DdglController().sstx();
                             }
                         });
                     }

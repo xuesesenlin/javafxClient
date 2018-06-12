@@ -45,6 +45,8 @@
                         </Button>
                         <!--<TextField prefHeight="23.0" prefWidth="99.0" promptText="根据单号查询"/>-->
                         <!--<Button mnemonicParsing="false" text="查询"/>-->
+                        <Label>当前页数:</Label>
+                        <Label fx:id="pageNow">1</Label>
                     </children>
                 </HBox>
                 <VBox prefHeight="26.0" prefWidth="580.0" VBox.vgrow="ALWAYS">
@@ -69,15 +71,21 @@
                                              text="操作"/>
                             </columns>
                         </TableView>
-                        <TableView prefHeight="300.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="order_table2" prefHeight="300.0" VBox.vgrow="ALWAYS">
                             <columns>
-                                <TableColumn maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="商品名称"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="品牌"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="数量"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="购买时单价"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="购买时总价"/>
-                                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="商品状态"/>
+                                <TableColumn fx:id="sp_xh" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="序号"/>
+                                <TableColumn fx:id="sp_name" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="商品名称"/>
+                                <TableColumn fx:id="sp_pp" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="品牌"/>
+                                <TableColumn fx:id="sp_sl" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="数量"/>
+                                <TableColumn fx:id="sp_dj" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="购买时单价"/>
+                                <TableColumn fx:id="sp_zj" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="购买时总价"/>
+                                <TableColumn fx:id="sp_zt" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"
+                                             text="商品状态"/>
                             </columns>
                         </TableView>
                     </children>
