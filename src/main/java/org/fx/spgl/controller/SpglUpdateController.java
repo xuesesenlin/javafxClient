@@ -1,7 +1,6 @@
 package org.fx.spgl.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,12 +68,7 @@ public class SpglUpdateController implements Initializable {
         sfxj.setValue("否");
 //        商品类目
         lm.setItems(FXCollections.observableArrayList(
-                "其它"));
-        lm.setValue("其它");
-        Platform.runLater(() -> {
-            String text = uuid.getText();
-            cname.setText(text);
-        });
+                new SpglController().spfl_data().split(",")));
     }
 
     @FXML

@@ -83,7 +83,6 @@ public class SpglController implements Initializable {
             return cell;
         });
         cname.setCellValueFactory(new PropertyValueFactory("cname"));
-
         zt.setCellValueFactory(new PropertyValueFactory("zt"));
         zt.setCellFactory(new Callback<TableColumn<SpglModel, String>, TableCell<SpglModel, String>>() {
             public TableCell call(TableColumn param) {
@@ -128,7 +127,7 @@ public class SpglController implements Initializable {
                         button.getStyleClass().add("button3");
                         Button button2 = new Button("修改");
                         button2.setOnMouseClicked(o -> {
-                            update(o, this.getTableView().getItems().get(this.getIndex()).getUuid());
+                            update(o, this.getTableView().getItems().get(this.getIndex()));
                         });
                         button2.getStyleClass().add("button");
                         button2.getStyleClass().add("button2");
@@ -220,11 +219,24 @@ public class SpglController implements Initializable {
     }
 
     //    修改
-    private void update(MouseEvent event, String uuid) {
+    private void update(MouseEvent event, SpglModel model) {
         try {
-            new SpglView().update(uuid);
+            new SpglView().update(model);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //    获取商品分类
+    public String spfl_data() {
+        try {
+            ResponseResult<String> result = spglInterface.spfl();
+            if (result.isSuccess())
+                return result.getData();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "其它";
+        }
+        return "其它";
     }
 }

@@ -61,8 +61,7 @@ public class SpglAddController implements Initializable {
         sfxj.setValue("否");
 //        商品类目
         lm.setItems(FXCollections.observableArrayList(
-                "其它"));
-        lm.setValue("其它");
+                new SpglController().spfl_data().split(",")));
     }
 
     @FXML
