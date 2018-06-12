@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import feign.FeignException;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
@@ -22,8 +21,6 @@ import org.fx.feign.AccountInterface;
 import org.fx.home.view.HomeView;
 import org.fx.login.model.LoginModel;
 import org.fx.urils.*;
-
-import static javafx.stage.StageStyle.TRANSPARENT;
 
 /**
  * @author ld
@@ -79,15 +76,15 @@ public class LoginController {
         Pane pane = new Pane();
         Label label = new Label("维护中");
         pane.getChildren().add(label);
-        Scene scene = new Scene(pane,100,20);
+        Scene scene = new Scene(pane, 100, 20);
         stage.setScene(scene);
 //        stage.initStyle(TRANSPARENT);
         stage.setResizable(false);
         stage.setTitle("提示");
         Screen screen2 = Screen.getPrimary();
         Rectangle2D bounds = screen2.getVisualBounds();
-        stage.setX(bounds.getMaxX()-200);
-        stage.setY(bounds.getMaxY()-100);
+        stage.setX(bounds.getMaxX() - 200);
+        stage.setY(bounds.getMaxY() - 100);
         stage.setWidth(200);
         stage.setHeight(100);
         stage.setAlwaysOnTop(true);
@@ -102,15 +99,15 @@ public class LoginController {
         Pane pane = new Pane();
         Label label = new Label("维护中");
         pane.getChildren().add(label);
-        Scene scene = new Scene(pane,100,20);
+        Scene scene = new Scene(pane, 100, 20);
         stage.setScene(scene);
 //        stage.initStyle(TRANSPARENT);
         stage.setResizable(false);
         stage.setTitle("提示");
         Screen screen2 = Screen.getPrimary();
         Rectangle2D bounds = screen2.getVisualBounds();
-        stage.setX(bounds.getMaxX()-200);
-        stage.setY(bounds.getMaxY()-100);
+        stage.setX(bounds.getMaxX() - 200);
+        stage.setY(bounds.getMaxY() - 100);
         stage.setWidth(200);
         stage.setHeight(100);
         stage.setAlwaysOnTop(true);

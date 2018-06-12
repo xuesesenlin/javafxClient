@@ -47,7 +47,7 @@ public class GrzlController {
                         System.exit(0);
                     });
                 }
-            }, 5000, 5000);
+            }, 3000, 3000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());
@@ -70,7 +70,7 @@ public class GrzlController {
                         System.exit(0);
                     });
                 }
-            }, 5000, 5000);
+            }, 3000, 3000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());
@@ -93,7 +93,7 @@ public class GrzlController {
                         System.exit(0);
                     });
                 }
-            }, 5000, 5000);
+            }, 3000, 3000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());

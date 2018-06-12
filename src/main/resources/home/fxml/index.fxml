@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="index" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.home.controller.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="index" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fx.home.controller.HomeController">
     <children>
-        <VBox layoutX="250.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox layoutX="250.0" layoutY="66.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0">
                     <children>
-                        <HBox alignment="TOP_RIGHT" style="-fx-background-color: #ccc; -fx-background: transparent;" VBox.vgrow="ALWAYS">
+                        <HBox alignment="TOP_RIGHT" style="-fx-background-color: #ccc; -fx-background: transparent;"
+                              VBox.vgrow="ALWAYS">
                             <children>
                                 <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <Label fx:id="title" prefHeight="25.0" text="xxx系统" HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="title" prefHeight="25.0" text="xxx系统" HBox.hgrow="ALWAYS"/>
                                     </children>
                                 </HBox>
-                                <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0" prefWidth="30.0" styleClass="button2" text="-" textFill="#1a00ff" />
-                                <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0" prefWidth="30.0" styleClass="button2" text="x" textFill="RED">
+                                <Label fx:id="hide" alignment="CENTER" onMouseClicked="#hide" prefHeight="25.0"
+                                       prefWidth="30.0" styleClass="button2" text="-" textFill="#1a00ff"/>
+                                <Label fx:id="close" alignment="CENTER" onMouseClicked="#close" prefHeight="25.0"
+                                       prefWidth="30.0" styleClass="button2" text="x" textFill="RED">
                                     <HBox.margin>
-                                        <Insets />
+                                        <Insets/>
                                     </HBox.margin>
                                 </Label>
                             </children>
@@ -34,37 +38,38 @@
                             <children>
                                 <Button mnemonicParsing="false" onMouseClicked="#grzl" prefWidth="100.0" text="个人资料">
                                     <VBox.margin>
-                                        <Insets bottom="3.0" />
+                                        <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" onMouseClicked="#spgl" prefWidth="100.0" text="商品管理">
                                     <VBox.margin>
-                                        <Insets bottom="3.0" />
+                                        <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" onMouseClicked="#ddgl" prefWidth="100.0" text="订单管理">
                                     <VBox.margin>
-                                        <Insets bottom="3.0" />
+                                        <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="二维码">
                                     <VBox.margin>
-                                        <Insets bottom="3.0" />
+                                        <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
                                 <Button mnemonicParsing="false" prefWidth="100.0" text="下载">
                                     <VBox.margin>
-                                        <Insets bottom="3.0" />
+                                        <Insets bottom="3.0"/>
                                     </VBox.margin>
                                 </Button>
-                                <Button mnemonicParsing="false" prefWidth="100.0" text="更新" />
+                                <Button mnemonicParsing="false" prefWidth="100.0" text="更新"/>
                             </children>
                         </VBox>
-                        <VBox prefWidth="5.0" style="-fx-background-color: #ccc;" />
+                        <VBox prefWidth="5.0" style="-fx-background-color: #ccc;"/>
                         <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <AnchorPane fx:id="bodys" prefHeight="378.0" prefWidth="495.0" VBox.vgrow="ALWAYS" />
-                     </children></VBox>
+                            <children>
+                                <AnchorPane fx:id="bodys" prefHeight="378.0" prefWidth="495.0" VBox.vgrow="ALWAYS"/>
+                            </children>
+                        </VBox>
                     </children>
                 </HBox>
             </children>
