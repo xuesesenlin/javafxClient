@@ -1,22 +1,28 @@
 package org.fx.home.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.fx.ddgl.model.OrderModel;
 import org.fx.ddgl.view.DdglView;
 import org.fx.feign.OrderInterface;
 import org.fx.grzl.view.GrzlView;
 import org.fx.spgl.view.SpglView;
 import org.fx.urils.*;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Timer;
 
 import static javafx.stage.StageStyle.TRANSPARENT;
@@ -114,8 +120,34 @@ public class HomeController {
                                     }
                                 }, 5000, 5000);
                             }
+                            ss_data();
                         });
                     }
                 }, 0, 15 * 1000);
+    }
+
+    private void ss_data() {
+        try {
+            Parent root = FXRobotHelper.getStages().get(0).getScene().getRoot();
+            TableView tableView = (TableView) root.lookup("#order_table");
+            if (tableView != null) {
+                ResponseResult<String> result = orderInterface.page(0, 15, 0, StaticToken.getToken());
+                if (result.isSuccess()) {
+                    String json = result.getData().substring(0, result.getData().lastIndexOf("]") + 1);
+                    try {
+                        List<OrderModel> beanList = objectMapper.readValue(json, new TypeReference<List<OrderModel>>() {
+                        });
+                        String s = result.getData().substring(result.getData().lastIndexOf("]") + 1, result.getData().length());
+                        StaticToken.setToken(s);
+                        tableView.getItems().clear();
+                        tableView.getItems().addAll(beanList);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
