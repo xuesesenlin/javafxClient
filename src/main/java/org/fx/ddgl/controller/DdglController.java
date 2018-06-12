@@ -32,7 +32,7 @@ public class DdglController implements Initializable {
             .target(SpglInterface.class, new FeignRequest().URL());
     private ObjectMapper objectMapper = new ObjectMapper();
     private AlertUtil alert = new AlertUtil();
-    private int ddlx;
+    public static int ddlx;
 
     @FXML
     private TableView order_table;

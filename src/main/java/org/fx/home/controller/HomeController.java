@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.fx.ddgl.controller.DdglController;
 import org.fx.ddgl.model.OrderModel;
 import org.fx.ddgl.view.DdglView;
 import org.fx.feign.OrderInterface;
@@ -130,19 +131,23 @@ public class HomeController {
         try {
             Parent root = FXRobotHelper.getStages().get(0).getScene().getRoot();
             TableView tableView = (TableView) root.lookup("#order_table");
+            Label label = (Label) root.lookup("#pageNow");
             if (tableView != null) {
-                ResponseResult<String> result = orderInterface.page(0, 15, 0, StaticToken.getToken());
-                if (result.isSuccess()) {
-                    String json = result.getData().substring(0, result.getData().lastIndexOf("]") + 1);
-                    try {
-                        List<OrderModel> beanList = objectMapper.readValue(json, new TypeReference<List<OrderModel>>() {
-                        });
-                        String s = result.getData().substring(result.getData().lastIndexOf("]") + 1, result.getData().length());
-                        StaticToken.setToken(s);
-                        tableView.getItems().clear();
-                        tableView.getItems().addAll(beanList);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                if (DdglController.ddlx == 0) {
+                    ResponseResult<String> result = orderInterface.page(0, 15, 0, StaticToken.getToken());
+                    if (result.isSuccess()) {
+                        String json = result.getData().substring(0, result.getData().lastIndexOf("]") + 1);
+                        try {
+                            List<OrderModel> beanList = objectMapper.readValue(json, new TypeReference<List<OrderModel>>() {
+                            });
+                            String s = result.getData().substring(result.getData().lastIndexOf("]") + 1, result.getData().length());
+                            StaticToken.setToken(s);
+                            tableView.getItems().clear();
+                            tableView.getItems().addAll(beanList);
+                            label.setText("1");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
