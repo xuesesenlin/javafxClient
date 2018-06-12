@@ -169,7 +169,9 @@ public class SpglController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        getData(0, 1);
+        Platform.runLater(() -> {
+            getData(0, 1);
+        });
     }
 
     //    上一页
