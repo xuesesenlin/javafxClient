@@ -1,16 +1,15 @@
 package org.fx.grzl.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.javafx.robot.impl.FXRobotHelper;
-import javafx.collections.ObservableList;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import org.fx.feign.AccountInterface;
 import org.fx.feign.PersionInterface;
 import org.fx.urils.*;
 
+import java.util.Timer;
 import java.util.logging.Logger;
 
 public class GrzlController {
@@ -41,8 +40,14 @@ public class GrzlController {
         if (result.isSuccess()) {
             alertUtil.f_alert_informationDialog("提示", "修改密码成功");
 ////            自动注销
-            ObservableList<Stage> stages = FXRobotHelper.getStages();
-            stages.get(0).close();
+            Timer timer2 = new Timer();
+            timer2.schedule(new java.util.TimerTask() {
+                public void run() {
+                    Platform.runLater(() -> {
+                        System.exit(0);
+                    });
+                }
+            }, 5000, 5000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());
@@ -58,6 +63,14 @@ public class GrzlController {
         ResponseResult<String> result = persionInterface.updateAdderss(text, StaticToken.getToken());
         if (result.isSuccess()) {
             alertUtil.f_alert_informationDialog("提示", "地址修改成功");
+            Timer timer2 = new Timer();
+            timer2.schedule(new java.util.TimerTask() {
+                public void run() {
+                    Platform.runLater(() -> {
+                        System.exit(0);
+                    });
+                }
+            }, 5000, 5000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());
@@ -73,6 +86,14 @@ public class GrzlController {
         ResponseResult<String> result = persionInterface.updatePhone(text, StaticToken.getToken());
         if (result.isSuccess()) {
             alertUtil.f_alert_informationDialog("提示", "电话修改成功");
+            Timer timer2 = new Timer();
+            timer2.schedule(new java.util.TimerTask() {
+                public void run() {
+                    Platform.runLater(() -> {
+                        System.exit(0);
+                    });
+                }
+            }, 5000, 5000);
         } else {
             StaticToken.setToken(result.getData());
             alertUtil.f_alert_informationDialog("警告", result.getMessage());
