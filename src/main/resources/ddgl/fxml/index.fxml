@@ -13,38 +13,38 @@
             <children>
                 <HBox prefHeight="23.0">
                     <children>
-                        <Button mnemonicParsing="false" text="未完成订单">
+                        <Button mnemonicParsing="false" onMouseClicked="#wwcdd" text="未完成订单">
                             <HBox.margin>
                                 <Insets right="5.0"/>
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="已完成订单">
+                        <Button mnemonicParsing="false" onMouseClicked="#ywcdd" text="已完成订单">
                             <HBox.margin>
                                 <Insets right="5.0"/>
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="已关闭订单">
+                        <Button mnemonicParsing="false" onMouseClicked="#ygbdd" text="已关闭订单">
                             <HBox.margin>
                                 <Insets right="5.0"/>
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="全部订单">
+                        <!--<Button mnemonicParsing="false" text="全部订单">-->
+                        <!--<HBox.margin>-->
+                        <!--<Insets right="5.0"/>-->
+                        <!--</HBox.margin>-->
+                        <!--</Button>-->
+                        <Button mnemonicParsing="false" onMouseClicked="#pageUp" text="上一页">
                             <HBox.margin>
                                 <Insets right="5.0"/>
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="上一页">
+                        <Button mnemonicParsing="false" onMouseClicked="#pageNext" text="下一页">
                             <HBox.margin>
                                 <Insets right="5.0"/>
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="下一页">
-                            <HBox.margin>
-                                <Insets right="5.0"/>
-                            </HBox.margin>
-                        </Button>
-                        <TextField prefHeight="23.0" prefWidth="99.0" promptText="根据单号查询"/>
-                        <Button mnemonicParsing="false" text="查询"/>
+                        <!--<TextField prefHeight="23.0" prefWidth="99.0" promptText="根据单号查询"/>-->
+                        <!--<Button mnemonicParsing="false" text="查询"/>-->
                     </children>
                 </HBox>
                 <VBox prefHeight="26.0" prefWidth="580.0" VBox.vgrow="ALWAYS">

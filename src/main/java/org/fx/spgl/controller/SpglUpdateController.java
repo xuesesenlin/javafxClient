@@ -11,12 +11,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.fx.feign.SpglInterface;
 import org.fx.spgl.model.SpglModel;
 import org.fx.spgl.view.SpglView;
 import org.fx.urils.*;
+import org.fx.urils.uploadImg.UpLoadImg;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class SpglUpdateController implements Initializable {
@@ -82,9 +90,8 @@ public class SpglUpdateController implements Initializable {
             model.setXq(xq.getText());
             model.setSl(Integer.parseInt(sl.getText()));
             model.setLm((String) lm.getValue());
-            model.setSxj(((String) sfxj.getValue()).equals("否") ? 0 : 1);
-            Image image = zt.getImage();
-//        model.setZt(zt.);
+            model.setSxj((sfxj.getValue()).equals("否") ? 0 : 1);
+            model.setZt(zt.getId());
 
             String json = objectMapper.writeValueAsString(model);
             ResponseResult<String> result = spglInterface.update(json + StaticToken.getToken());
@@ -100,6 +107,44 @@ public class SpglUpdateController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
             alert.f_alert_informationDialog("警告", "失败");
+        }
+    }
+
+    @FXML
+    private void addImg(MouseEvent event) throws Exception {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("选择文件");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                    new FileChooser.ExtensionFilter("PNG", "*.png")
+            );
+            File file = fileChooser.showOpenDialog(new Stage());
+            if (file == null)
+                alert.f_alert_informationDialog("提示", "请选择文件");
+            else {
+                String urlStr = new FeignRequest().URL() + "/api/upload/upload";
+                Map<String, String> fileMap = new HashMap<>();
+                fileMap.put("file", file.getPath());
+                String contentType = "";//image/png
+                String token = StaticToken.getToken();
+                Map<String, String> textMap = new HashMap<>();
+                //可以设置多个input的name，value
+                textMap.put("token", token);
+                String s = UpLoadImg.formUpload(urlStr, textMap, fileMap, contentType);
+                ObjectMapper mapper = new ObjectMapper();
+                ResponseResult result = mapper.readValue(s, ResponseResult.class);
+                if (result.isSuccess()) {
+                    zt.setImage(new Image(new FeignRequest().URL() + "/commodity/IoReadImage/" + result.getData().toString()));
+                    zt.setId(result.getData().toString());
+                } else
+                    alert.f_alert_informationDialog("警告", "文件上传失败");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            alert.f_alert_informationDialog("警告", "文件上传失败");
         }
     }
 }

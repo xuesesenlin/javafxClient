@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import org.fx.ddgl.controller.DdglController;
 import org.fx.ddgl.view.DdglView;
 import org.fx.feign.AccountInterface;
 import org.fx.feign.OrderInterface;
@@ -106,7 +107,6 @@ public class HomeController {
                                 timer2.schedule(new java.util.TimerTask() {
                                     public void run() {
                                         Platform.runLater(() -> {
-                                            System.out.println("提醒窗口关闭");
                                             if (stage.isShowing()) {
                                                 stage.close();
                                                 timer2.cancel();
@@ -115,6 +115,8 @@ public class HomeController {
                                         });
                                     }
                                 }, 5000, 5000);
+//                                刷新未完成的
+                                new DdglController().sstx();
                             }
                         });
                     }

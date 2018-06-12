@@ -12,6 +12,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import org.fx.ddgl.model.OrderModel;
 import org.fx.feign.OrderInterface;
@@ -34,6 +35,8 @@ public class DdglController implements Initializable {
     private ObjectMapper objectMapper = new ObjectMapper();
     private AlertUtil alert = new AlertUtil();
     private int ddlx;
+    private int page;
+    private int page2;
 
     @FXML
     private TableView order_table;
@@ -57,11 +60,14 @@ public class DdglController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
-            getData(0, 1);
+            getData(0, 1, 0);
         });
     }
 
-    public void getData(int page, int page2) {
+    public void getData(int page, int page2, int ddlx) {
+        this.ddlx = ddlx;
+        this.page = page;
+        this.page2 = page2;
         ObservableList<OrderModel> list = FXCollections.observableArrayList();
 //        映射
         order_uuid.setCellValueFactory(new PropertyValueFactory("uuid"));
@@ -85,6 +91,26 @@ public class DdglController implements Initializable {
         order_dh.setCellValueFactory(new PropertyValueFactory("phone"));
         order_dz.setCellValueFactory(new PropertyValueFactory("address"));
         order_ddzt.setCellValueFactory(new PropertyValueFactory("type"));
+        order_ddzt.setCellFactory((col) -> {
+            TableCell<OrderModel, Integer> cell = new TableCell<OrderModel, Integer>() {
+                @Override
+                public void updateItem(Integer item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (!empty) {
+                        String s = "";
+                        if (item == 0)
+                            s = "未完成";
+                        if (item == 1)
+                            s = "已完成";
+                        if (item == 2)
+                            s = "已关闭";
+                        this.setText(s);
+                    } else
+                        this.setText(null);
+                }
+            };
+            return cell;
+        });
         order_cz.setCellFactory((col) -> {
             TableCell<OrderModel, String> cell = new TableCell<OrderModel, String>() {
                 @Override
@@ -95,7 +121,7 @@ public class DdglController implements Initializable {
                     if (!empty) {
                         Button button = new Button("查看");
                         button.setOnMouseClicked(o -> {
-//                            delete(o, this.getTableView().getItems().get(this.getIndex()).getUuid());
+                            query(this.getTableView().getItems().get(this.getIndex()).getUuid());
                         });
                         button.getStyleClass().add("button");
                         button.getStyleClass().add("button2");
@@ -142,61 +168,80 @@ public class DdglController implements Initializable {
             order_table.setItems(list);
         }
     }
-//
 
-//
-//    //    上一页
-//    @FXML
-//    private void pageUp(MouseEvent event) {
-//        String s = pageNow.getText();
-//        int i = Integer.parseInt(s);
-//        i = i - 1;
-//        if (i < 1)
-//            i = 1;
-//        getData(i - 1, i);
-//    }
-//
-//    //    下一页
-//    @FXML
-//    private void pageNext(MouseEvent event) {
-//        String s = pageNow.getText();
-//        int i = Integer.parseInt(s);
-//        getData(i + 1, i + 1);
-//    }
-//
-//    //    新增
-//    @FXML
-//    private void add(MouseEvent event) {
+    //未完成订单
+    @FXML
+    private void wwcdd(MouseEvent event) {
+        getData(0, 1, 0);
+    }
+
+    //已完成订单
+    @FXML
+    private void ywcdd(MouseEvent event) {
+        getData(0, 1, 1);
+    }
+
+    //已关闭订单
+    @FXML
+    private void ygbdd(MouseEvent event) {
+        getData(0, 1, 2);
+    }
+
+    //    上一页
+    @FXML
+    private void pageUp(MouseEvent event) {
+        getData(page + 1, page2 + 1, ddlx);
+    }
+
+    //    下一页
+    @FXML
+    private void pageNext(MouseEvent event) {
+        page = page - 1 < 0 ? 0 : page;
+        page2 = page2 - 1 < 1 ? 1 : page;
+        getData(page, page2, ddlx);
+    }
+
+    //   实时提醒
+    public void sstx() {
+        if (ddlx == 0)
+            getData(0, 1, 0);
+    }
+
+    //    查看具体商品
+    private void query(String id) {
+//        data2.clear();
 //        try {
-//            new SpglView().add();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    //    删除
-//    private void delete(MouseEvent event, String uuid) {
-//        boolean b = alert.f_alert_confirmDialog("警告", "是否确定删除?");
-//        if (b) {
-//            ResponseResult<String> result = spglInterface.del(uuid, StaticToken.getToken());
+//            ResponseResult<String> result = orderInterface.getSp(pageNow, 15, id, StaticToken.getToken());
+////        更新订单列表
 //            if (result.isSuccess()) {
-//                String s = result.getData().substring(result.getData().lastIndexOf("}") + 1, result.getData().length());
+//                String s = result.getData().substring(result.getData().lastIndexOf("]") + 1, result.getData().length());
 //                StaticToken.setToken(s);
-//                String s1 = pageNow.getText();
-//                int i2 = Integer.parseInt(s1);
-//                getData(i2 - 1, i2);
-//            } else
+//                try {
+//                    String json = result.getData().substring(0, result.getData().lastIndexOf("]") + 1);
+//                    List<OrderSpModel> beanList = objectMapper.readValue(json, new TypeReference<List<OrderSpModel>>() {
+//                    });
+//                    data2.addAll(beanList);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    mp3Util.mp3("/mp3/error.mp3");
+//                    logger.info(new LoggerUtil(OrderController.class, "query", "数据转换错误").toString());
+//                    alertUtil.f_alert_informationDialog("警告", "数据转换错误");
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    mp3Util.mp3("/mp3/error.mp3");
+//                    logger.info(new LoggerUtil(OrderController.class, "query", "获取数据失败").toString());
+//                    alertUtil.f_alert_informationDialog("警告", "获取数据失败");
+//                }
+//            } else {
 //                StaticToken.setToken(result.getData());
-//
+////                mp3Util.mp3("/mp3/error.mp3");
+//                logger.info(new LoggerUtil(OrderController.class, "query", result.getMessage()).toString());
+//                alertUtil.f_alert_informationDialog("警告", result.getMessage());
+//            }
+//        } catch (RuntimeException e) {
+////            mp3Util.mp3("/mp3/error.mp3");
+//            logger.info(new LoggerUtil(OrderController.class, "query", "服务器链接失败，请从新登录").toString());
+//            alertUtil.f_alert_informationDialog("警告", "服务器链接失败，请从新登录");
 //        }
-//    }
-//
-//    //    修改
-//    private void update(MouseEvent event, String uuid) {
-//        try {
-//            new SpglView().update(uuid);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    }
 }
